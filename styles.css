@@ -106,3 +106,25 @@ footer{padding:66px 6vw 38px;display:grid;grid-template-columns:1fr 1fr auto;ali
   .support-track span{min-height:92px}
   footer{padding-top:46px;padding-bottom:34px}
 }
+
+/* Reference-layout lock: preserve original hierarchy/placement while keeping custom visual details */
+.hero-content{max-width:1180px}
+.hero h1{max-width:1180px;margin-bottom:38px}
+.hero-note{display:none}
+.sponsor-title{display:block;margin:46px 0 42px}
+.sponsor-title h2{font-size:clamp(42px,4.6vw,72px);line-height:.9;letter-spacing:-.055em}
+.jury-heading{display:block;margin:42px 0 46px}
+.jury-heading h2{font-size:clamp(42px,4.6vw,72px);line-height:.9;letter-spacing:-.055em}
+.jury-heading p{margin-top:14px}
+.timeline-card{display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.timeline-card span{font-size:12px;letter-spacing:.08em}
+.timeline-card small{display:none}
+.timeline-card:nth-child(2),.timeline-card:nth-child(3){transform:none}
+.timeline-card:hover:nth-child(2),.timeline-card:hover:nth-child(3){transform:translateY(-6px)}
+@media(max-width:700px){
+  .hero h1{font-size:clamp(50px,13vw,60px);line-height:.82;margin:14px 0 28px}
+  .sponsor-title{margin:34px 20px 28px}
+  .sponsor-title h2,.jury-heading h2{font-size:40px;line-height:.94}
+  .jury-heading{margin:34px 0 30px}
+  .timeline-card span{font-size:11px}
+}
