@@ -1,22 +1,4 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-
-const port = process.env.PORT || 3000;
-
-const server = http.createServer((req, res) => {
-  const filePath = path.join(__dirname, 'index.html');
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('Server error');
-      return;
-    }
-    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    res.end(data);
-  });
-});
-
-server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+const http=require('http');const fs=require('fs');const path=require('path');const port=process.env.PORT||3000;
+const routes={'/':'index.html','/hakkinda':'hakkinda.html','/sartname':'sartname.html','/brief':'brief.html','/program':'program.html','/kazananlar':'kazananlar.html','/kayit':'kayit.html'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'application/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp'};
+http.createServer((req,res)=>{const url=req.url.split('?')[0];let file=routes[url]||url.slice(1);if(!file||file.includes('..'))file='index.html';const fp=path.join(__dirname,file);fs.readFile(fp,(err,data)=>{if(err){res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'});return res.end('404');}res.writeHead(200,{'Content-Type':types[path.extname(fp)]||'application/octet-stream'});res.end(data);});}).listen(port,()=>console.log('Server running on '+port));
