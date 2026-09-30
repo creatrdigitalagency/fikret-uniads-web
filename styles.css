@@ -34,3 +34,75 @@ footer{padding:66px 6vw 38px;display:grid;grid-template-columns:1fr 1fr auto;ali
   footer{grid-template-columns:1fr;padding:50px 20px;gap:18px}.footer-brand .brand-orbit{width:44px;height:44px}.footer-brand .brand-text{font-size:31px}
 }
 @media(max-width:390px){.hero h1{font-size:12.95vw}.about h2{font-size:10.25vw}}
+
+/* Cohesive internal-component alternatives */
+.partner-card,.timeline-card,.jury-visual,.support-track span{position:relative;overflow:hidden}
+.partner-card:before,.timeline-card:before,.jury-visual:before,.support-track span:before{
+  content:"";position:absolute;inset:auto -18% -42% auto;width:150px;height:150px;border-radius:50%;
+  border:1px solid rgba(223,255,52,.17);pointer-events:none
+}
+.partner-card:after,.timeline-card:after,.support-track span:after{
+  content:"";position:absolute;width:110px;height:110px;right:-34px;top:-34px;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%,rgba(223,255,52,.16),rgba(123,69,255,.13) 38%,transparent 68%);
+  filter:blur(5px);pointer-events:none
+}
+.partner-card:nth-child(2n):before,.timeline-card:nth-child(2):before,.support-track span:nth-child(2n):before{border-color:rgba(123,69,255,.27)}
+.partner-card:nth-child(3n):after,.timeline-card:nth-child(3):after,.support-track span:nth-child(3n):after{
+  background:radial-gradient(circle at 40% 40%,rgba(47,114,255,.2),rgba(123,69,255,.12) 42%,transparent 70%)
+}
+.partner-card strong,.partner-card small,.partner-card span,.timeline-card>*{position:relative;z-index:2}
+.partner-card{background:
+  linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px),
+  #070707;background-size:34px 34px}
+.partner-card strong{font-size:clamp(22px,1.7vw,29px);max-width:85%;line-height:.95}
+.timeline-card{background:
+  linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),
+  #0a0a0a;background-size:42px 42px}
+.timeline-card:nth-child(2){transform:translateY(18px)}.timeline-card:nth-child(3){transform:translateY(36px)}
+.timeline-card:hover:nth-child(2){transform:translateY(12px)}.timeline-card:hover:nth-child(3){transform:translateY(30px)}
+
+.jury-visual{background:
+  linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px),
+  radial-gradient(circle at 50% 48%,rgba(123,69,255,.18),transparent 46%),#080808;
+  background-size:38px 38px,38px 38px,auto,auto}
+.jury-visual:before{
+  width:54%;height:54%;left:23%;top:17%;border:1px solid rgba(255,255,255,.18);
+  background:transparent;border-radius:50%;box-shadow:0 0 0 38px rgba(255,255,255,.018),0 0 0 76px rgba(123,69,255,.025)
+}
+.jury-visual:after{width:92px;height:260px;left:50%;top:50%;bottom:auto;border-radius:100% 10%;border:1px solid rgba(255,255,255,.24);background:transparent;transform:translate(-50%,-50%) rotate(36deg);transform-origin:50% 80%}
+.j2:after{transform:translate(-50%,-50%) rotate(78deg)}.j3:after{transform:translate(-50%,-50%) rotate(118deg)}
+.j4:after{transform:translate(-50%,-50%) rotate(162deg)}.j5:after{transform:translate(-50%,-50%) rotate(208deg)}.j6:after{transform:translate(-50%,-50%) rotate(252deg)}
+.jury-visual span{z-index:4}
+
+.support-track span{background:
+  linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:28px 28px}
+
+@media(max-width:700px){
+  .hero{padding-bottom:64px}
+  .hero-content{padding-right:12px}
+  .hero h1{font-size:clamp(49px,13vw,60px);line-height:.805;margin-top:14px;margin-bottom:20px}
+  .hero-note{max-width:286px;margin-bottom:24px}
+  .section{padding-top:68px;padding-bottom:68px}
+  .about h2{margin-top:42px;font-size:clamp(39px,10.2vw,47px)}
+  .kinetic-card{height:322px;margin-top:40px}
+  .stats-grid{margin-top:28px}
+  .stat{min-height:188px;padding:23px 22px}
+  .stat strong{font-size:66px}
+  .sponsor-title,.jury-heading{margin-top:40px;margin-bottom:30px}
+  .partner-card{min-height:154px}
+  .timeline{padding-bottom:34px}
+  .timeline-card{min-height:176px}
+  .timeline-card:nth-child(2),.timeline-card:nth-child(3){transform:none}
+  .timeline-card:hover:nth-child(2),.timeline-card:hover:nth-child(3){transform:translateY(-4px)}
+  .video-shell{margin-top:30px}
+  .jury-grid{gap:26px}
+  .jury-visual{aspect-ratio:1/.98}
+  .jury-visual:after{height:210px;width:72px}
+  .support-track span{min-height:92px}
+  footer{padding-top:46px;padding-bottom:34px}
+}
